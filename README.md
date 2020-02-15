@@ -1,0 +1,2 @@
+# ElasticBeanstalk_DockerContainers_Deployment
+Terraform code for AWS ElasticBeanstalk Docker MutliContainer environment 
