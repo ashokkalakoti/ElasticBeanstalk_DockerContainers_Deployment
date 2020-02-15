@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "app",
-      "Image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/<EB_APP_NAME>:stagging-0c583a7e248b9bf567b01fcc2224837849df44e7",
+      "Image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:tomcat-7f8bcd414b81ef906b72e3c0da96e9aa61d76c50",
       "environment": [
         {
           "name": "NODE_ENV",
@@ -11,11 +11,11 @@
         }
       ],
       "essential": true,
-      "memory": 2048,
+      "memory": 256,
       "portMappings": [
         {
           "hostPort": 80,
-          "containerPort": 80
+          "containerPort": 8080
         }
       ]
     }

@@ -32,7 +32,7 @@ docker push $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$EB_APP_NAME:$VERSION
 # Replace variables in the Dockerrun file before zipping
 cp dockerrun.aws.template Dockerrun.aws.json
 sed -i='' "s/<AWS_ACCOUNT_ID>/$AWS_ACCOUNT_ID/" Dockerrun.aws.json
-sed -i='' "s/<NAME>/$EB_APP_NAME/" Dockerrun.aws.json
+sed -i='' "s/<EB_APP_NAME>/$EB_APP_NAME/" Dockerrun.aws.json
 sed -i='' "s/<TAG>/$VERSION/" Dockerrun.aws.json
 
 # Zip up the Dockerrun file

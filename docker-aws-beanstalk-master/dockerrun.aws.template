@@ -11,11 +11,11 @@
         }
       ],
       "essential": true,
-      "memory": 2048,
+      "memory": 256,
       "portMappings": [
         {
           "hostPort": 80,
-          "containerPort": 80
+          "containerPort": 8080
         }
       ]
     }

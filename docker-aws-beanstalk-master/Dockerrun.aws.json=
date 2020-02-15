@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "app",
-      "Image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/<EB_APP_NAME>:<TAG>",
+      "Image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:<TAG>",
       "environment": [
         {
           "name": "NODE_ENV",
@@ -11,11 +11,11 @@
         }
       ],
       "essential": true,
-      "memory": 2048,
+      "memory": 256,
       "portMappings": [
         {
           "hostPort": 80,
-          "containerPort": 80
+          "containerPort": 8080
         }
       ]
     }
