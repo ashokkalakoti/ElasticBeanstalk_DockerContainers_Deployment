@@ -1,0 +1,24 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [{
+        "name": "api",
+        "image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:latest",
+        "essential": true,
+        "memory": 128,
+        "environment": [{
+            "name": "DJANGO_SETTINGS_MODULE",
+            "value": "api.aws"
+        }]
+    },{
+        "name": "api_proxy",
+        "image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:latest",
+        "essential": true,
+        "memory": 128,
+        "links": ["api"],
+        "portMappings": [{
+            "hostPort": 80,
+            "containerPort": 80
+        }]
+    }]
+}
+
