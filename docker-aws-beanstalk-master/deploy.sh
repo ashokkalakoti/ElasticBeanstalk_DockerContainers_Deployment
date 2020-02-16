@@ -8,8 +8,10 @@ SHA1=`echo -n $NOW | openssl dgst -sha1 |awk '{print $NF}'`
 
 [[ -z "$BRANCH" ]] && { echo "must pass a branch param" ; exit 1; }
 
+AWS_ACCOUNT_NUBMER=`curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .accountId`
+
 # Main variables to modify for your account
-AWS_ACCOUNT_ID=443777457760
+AWS_ACCOUNT_ID=`curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .accountId`
 EB_APP_NAME='demo-docker-cicd'
 EB_ENV_NAME='demo-docker-cicd-test'
 EB_BUCKET='demo-docker-cicd-deployments'
@@ -34,6 +36,10 @@ cp dockerrun.aws.template Dockerrun.aws.json
 sed -i='' "s/<AWS_ACCOUNT_ID>/$AWS_ACCOUNT_ID/" Dockerrun.aws.json
 sed -i='' "s/<EB_APP_NAME>/$EB_APP_NAME/" Dockerrun.aws.json
 sed -i='' "s/<TAG>/$VERSION/" Dockerrun.aws.json
+
+
+
+#cat Dockerrun.aws.json | python -m json.tool
 
 # Zip up the Dockerrun file
 zip -r $ZIP Dockerrun.aws.json

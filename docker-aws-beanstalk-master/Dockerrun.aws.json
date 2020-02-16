@@ -2,7 +2,7 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [{
         "name": "api",
-        "image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:nginxserver-a35875c0971ad05b97a75523e825055866769b8b",
+        "image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:testing034-d356487b18b7193f393f84265d8114f9419650e8",
         "essential": true,
         "memory": 128,
         "environment": [{
@@ -11,7 +11,7 @@
         }]
     },{
         "name": "api_proxy",
-        "image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:nginxserver-a35875c0971ad05b97a75523e825055866769b8b",
+        "image": "443777457760.dkr.ecr.us-east-1.amazonaws.com/demo-docker-cicd:testing034-d356487b18b7193f393f84265d8114f9419650e8",
         "essential": true,
         "memory": 128,
         "links": ["api"],
